@@ -1,15 +1,15 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
+import { BrowserRouter } from "react-router-dom";
 import "./App.css";
+import { AppRouter } from "./router/AppRouter";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <button class="btn">Bt</button>
-    </div>
+    <BrowserRouter>
+      <AppRouter />
+    </BrowserRouter>
   );
 }
 
