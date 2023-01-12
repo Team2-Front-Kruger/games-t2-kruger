@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getGames } from "./thuks";
+import { getGames } from "./thunks";
 
 export const MainPage = () => {
   const dispatch = useDispatch();
