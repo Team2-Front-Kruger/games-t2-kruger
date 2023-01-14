@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import "./App.css";
-import Navbar from "./components/Navbar";
+import LandingPage from "./components/landingPage/LandingPage";
+
 import { AppRouter } from "./router/AppRouter";
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar></Navbar>
+      <LandingPage></LandingPage>
+
       <AppRouter />
     </BrowserRouter>
   );

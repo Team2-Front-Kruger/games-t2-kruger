@@ -8,6 +8,7 @@ export const AppRouter = () => {
       {
         // (authStatus=== 'non-authenticated')
       }
+      
       <Route path="/" element={<MainPage />} />
     </Routes>
   );
