@@ -34,6 +34,9 @@ export const GamesCard = ({
           <div className="badge badge-outline">Action</div>
           <div className="badge badge-outline">Adventure</div>
         </div>
+        <div>
+          <button className="btn">Guardar Juego</button>
+        </div>
       </div>
     </div>
   );

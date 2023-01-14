@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -8,11 +9,13 @@ export const GamePage = () => {
   // un getGameId if state.games = vacío, solo si esta vacio, en caso que entren directo  buscar
   // el juego sin pasar por main.
 
+  const dispatch = useDispatch();
   const { nombre } = useParams();
 
-  const { games = [], gameById = [] } = useSelector((state) => state.games);
+  // const descr = useRef();
+  // const [descr, setDescr] = useState([]);
 
-  const dispatch = useDispatch();
+  const { games = [], gameById = [] } = useSelector((state) => state.games);
 
   const {
     name,
@@ -21,21 +24,34 @@ export const GamePage = () => {
     short_screenshots = [],
   } = games.find((game) => game.slug === nombre);
 
-  const { description } = gameById;
+  const background_img = short_screenshots.filter((g) => g.id > 0);
 
-  const descr = useRef();
+  const { description = "" } = gameById;
+
+  // const { description: d } = descr;
+
+  // console.log(d);
+  // document.querySelector("#descrip").innerHTML = descr;
 
   // descr.current = description;
-  // document.querySelector("#descrip").innerHTML = description;
+
   // console.log(des);
 
   // document.getElementById("descrip").innerHTML;
 
-  const background_img = short_screenshots.filter((g) => g.id > 0);
+  console.log(document.querySelector("#descrip"));
+
+  if (document.querySelector("#descrip") === null) {
+    console.log("ES NULO");
+  } else {
+    console.log("NO NULO");
+    document.getElementById("descrip").innerHTML = description;
+  }
 
   useEffect(() => {
-    descr.current.innerHTML = description;
+    // descr.current.innerHTML = description;
     dispatch(getGamesByIdSlug(slug));
+    //setDescr(gameById);
   }, []);
 
   return (
@@ -64,7 +80,7 @@ export const GamePage = () => {
           {/* END-CAROUSEL */}
 
           <div className="max-w-md">
-            <div ref={descr} id="descrip"></div>
+            <div id="descrip"></div>
             {/* <p className="mb-5">{description}</p> */}
             <button className="btn btn-primary">Get Started</button>
           </div>

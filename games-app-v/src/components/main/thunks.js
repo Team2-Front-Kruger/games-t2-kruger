@@ -34,7 +34,7 @@ export const getGamesByIdSlug = (game_name = "") => {
 
     const { data } = await gameApi.get(`/games/${game_name}?key=${key}`);
 
-    console.log(data);
+    // console.log(data);
 
     dispatch(setGamesById({ games: data }));
   };
