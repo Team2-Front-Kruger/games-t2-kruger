@@ -5,6 +5,7 @@ export const mainSlice = createSlice({
   initialState: {
     page: 0,
     games: [],
+    gameById: [],
     isLoading: false,
   },
   reducers: {
@@ -15,9 +16,14 @@ export const mainSlice = createSlice({
       state.isLoading = false;
       state.page = action.payload.page;
       state.games = action.payload.games;
+      state.gamesPopular = action.payload.gamesP;
+    },
+    setGamesById: (state, action) => {
+      state.isLoading = false;
+      state.gameById = action.payload.games;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { startLoadingGames, setGames } = mainSlice.actions;
+export const { startLoadingGames, setGames, setGamesById } = mainSlice.actions;
