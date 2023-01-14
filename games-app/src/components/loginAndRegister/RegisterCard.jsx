@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 const CardRegister = () => {
 
     const [user, setUser] = useState({
@@ -12,6 +13,7 @@ const CardRegister = () => {
     const {signup} = useAuth();
     const navigate = useNavigate();
     const [error, setError] = useState();
+    const dispatch = useDispatch();
 
     const handleChange = ({target: {name, value}}) => {
         setUser({...user, [name]: value})
@@ -23,10 +25,10 @@ const CardRegister = () => {
         try {
             await signup(user.email, user.password);
             navigate('/');
+            dispatch(isLogged(user.email))
 
         } catch (error) {
-            setError(error.message);
-            
+            setError(error.message);            
         }
         
         

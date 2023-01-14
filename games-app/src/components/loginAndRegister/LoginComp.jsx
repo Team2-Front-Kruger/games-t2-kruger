@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
+import { isLogged } from "../../store/auth/authSlice";
 
 const LoginComp = () => {
 
@@ -14,6 +16,8 @@ const LoginComp = () => {
     const navigate = useNavigate();
     const [error, setError] = useState();
 
+    const dispatch = useDispatch();
+
     const handleChange = ({target: {name, value}}) => {
         setUser({...user, [name]: value})
     }
@@ -24,6 +28,7 @@ const LoginComp = () => {
         try {
             await login(user.email, user.password);
             navigate('/');
+            dispatch(isLogged(user.email))
         } catch (error) {
             setError(error.message);            
         }        
@@ -63,7 +68,7 @@ const LoginComp = () => {
                                 <label className="label">
                                     <span className="label-text text-white">Password</span>
                                 </label>
-                                <input name="password" onChange={handleChange} type="password" placeholder="password" className="input input-primary  bg-[#2d3039] text-white" />
+                                <input name="password" onChange={handleChange} type="password" placeholder="password" autoComplete="on" className="input input-primary  bg-[#2d3039] text-white" />
                                 <br />
                                 <button className="btn btn-primary">Login</button>
                             </form>
