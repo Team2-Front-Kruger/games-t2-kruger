@@ -6,6 +6,7 @@ export const mainSlice = createSlice({
     page: 0,
     games: [],
     gameById: [],
+    gamesRelease: [],
     isLoading: false,
   },
   reducers: {
@@ -17,6 +18,7 @@ export const mainSlice = createSlice({
       state.page = action.payload.page;
       state.games = action.payload.games;
       state.gamesPopular = action.payload.gamesP;
+      state.gamesRelease = action.payload.gamesRel;
     },
     setGamesById: (state, action) => {
       state.isLoading = false;

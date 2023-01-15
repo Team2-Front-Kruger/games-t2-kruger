@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { startLoadingGames } from "../../store/collections/thunks";
@@ -14,9 +14,23 @@ export const MainPage = () => {
     games = [],
     page,
     gamesPopular = [],
+    gamesRelease = [],
   } = useSelector((state) => state.games);
 
   // console.log(gamesPopular);
+
+  const rel = gamesRelease?.filter((gr) => gr.slug !== "exoprimal");
+
+  console.log(rel);
+
+  const str = rel?.map((pt) => pt.parent_platforms);
+  // console.log(str);
+
+  // str[2].map((p) => console.log(p.platform));
+
+  // console.log(gamesRelease[0]?.background_image);
+  // console.log(parent_platforms);
+  // console.log(rel);
 
   let name = "";
   let background_image = "";
@@ -25,6 +39,44 @@ export const MainPage = () => {
     name = gp.name;
     background_image = gp.background_image;
   });
+  let c = 0;
+
+  const [counter, setCounter] = useState(0);
+
+  console.log(counter);
+
+  const [titleH, setTitleH] = useState(rel[0]?.name);
+  if (counter > 3) {
+    setCounter(0);
+  }
+
+  const next = () => {
+    setCounter(counter + 1);
+    setTitleH(rel[counter]?.name);
+
+    document.querySelector(
+      "#backIm"
+    ).style.backgroundImage = `url(${rel[counter]?.background_image})`;
+    document.querySelector("#slideP").src = rel[counter]?.background_image;
+    document.querySelector("#h1H").innerHTML = rel[counter]?.name;
+    document.querySelector("#h2H").innerHTML =
+      "Game release date: " + rel[counter]?.released;
+  };
+  const back = () => {
+    setCounter(counter - 1);
+    setTitleH(rel[counter]?.name);
+    if (counter < 0) {
+      setCounter(0);
+    }
+
+    document.querySelector(
+      "#backIm"
+    ).style.backgroundImage = `url(${rel[counter]?.background_image})`;
+    document.querySelector("#slideP").src = rel[counter]?.background_image;
+    document.querySelector("#h1H").innerHTML = rel[counter]?.name;
+    document.querySelector("#h2H").innerHTML =
+      "Game release date: " + rel[counter]?.released;
+  };
 
   useEffect(() => {
     dispatch(getGames());
@@ -34,11 +86,70 @@ export const MainPage = () => {
   return (
     <>
       {/* HERO - Trending - New */}
-      <div>
-        {gamesPopular.map((gameP) => (
+
+      <div
+        id="backIm"
+        className="hero bg-no-repeat bg-[center_30%] "
+        style={{ backgroundImage: `url(${rel[0]?.background_image})` }}
+      >
+        <div className="hero-overlay bg-opacity-60"></div>
+        <div className="hero-content justify-between items-end w-full text-left text-neutral-content">
+          <div className="max-w-md">
+            <h1 id="h1H" className="mb-5 text-5xl font-bold">
+              {rel[0]?.name}
+            </h1>
+            <h2 id="h2H" className="text-center">
+              Game release date: {rel[0]?.released}
+            </h2>
+            <br />
+            {/* <div className="flex ">
+              {rel?.map((p) => (
+                <img
+                  key={p.parent_platforms.platform.slug}
+                  src={`/icons/${p.parent_platforms.platform.slug}.png`}
+                  alt="Game"
+                  className="w-8 h-8 mr-4"
+                />
+              ))}
+            </div> */}
+            <button className="btn btn-primary">Go!</button>
+          </div>
+          <div className="  w-80">
+            <div className=" relative w-full">
+              <img
+                id="slideP"
+                src={rel[0]?.background_image}
+                className="w-full rounded-2xl"
+              />
+              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                <div className="text-left">
+                  <button className="btn glass btn-circle" onClick={back}>
+                    ❮
+                  </button>
+                </div>
+                <div className="text-right">
+                  <button className="btn glass btn-circle" onClick={next}>
+                    ❯
+                  </button>
+                </div>
+
+                {/* <a href="#slide4" className="btn glass btn-circle">
+                  ❮
+                </a>
+                <a href="#slide2" className="btn glass btn-circle">
+                  ❯
+                </a> */}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* <div>
+        {rel.map((gameP) => (
           <HeroGames key={gameP.slug} {...gameP} />
         ))}
-      </div>
+      </div> */}
 
       {/* CARD - TOP GAMES*/}
       <span>Loading: {isLoading ? "True" : "False"} </span>
