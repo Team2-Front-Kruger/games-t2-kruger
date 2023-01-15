@@ -12,7 +12,7 @@ export const getGames = (page = 0) => {
     //TODO: realizar petición http
     const key = "527fdfafc46a42a8b6e39fdd86a5a6a2";
 
-    const { data } = await gameApi.get(`/games?key=${key}&page=1&page_size=3`);
+    const { data } = await gameApi.get(`/games?key=${key}&page=1&page_size=9`);
 
     const { data: dataP } = await gameApi.get(
       `/games?key=${key}&dates=2021-01-01,2022-12-31&ordering=-added&page=1&page_size=1`

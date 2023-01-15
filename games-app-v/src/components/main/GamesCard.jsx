@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { startSaveGames } from "../../store/collections/thunks";
 import { useDispatch } from "react-redux";
 import { getGamesByIdSlug } from "./thunks";
+import "animate.css";
 
 export const GamesCard = ({
   name,
@@ -27,7 +28,7 @@ export const GamesCard = ({
   };
 
   return (
-    <div className=" card w-96 bg-base-100 shadow-xl mb-6">
+    <div className="animate__animated animate__zoomIn card w-96 bg-base-100 shadow-xl mb-6">
       <figure className="relative">
         <img
           src={background_image}
@@ -64,13 +65,13 @@ export const GamesCard = ({
         >
           <h2 className="card-title">{name}</h2>
         </Link>
-        <div className="badge badge-info">{title}</div>
+        <div className="badge badge-primary">{title}</div>
         <div className="grid ">
           <div className="flex justify-between">
-            <p>Release:</p> <span>{released}</span>
+            <p className="font-semibold">Release:</p> <span>{released}</span>
           </div>
           <div className="flex justify-between">
-            <p>Play Time:</p> <span>{playtime}</span>
+            <p className="font-semibold">Play Time:</p> <span>{playtime}</span>
           </div>
         </div>
         <div className="card-actions justify-end">

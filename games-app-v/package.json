@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
+    "animate.css": "^4.1.1",
     "axios": "^1.2.2",
     "daisyui": "^2.46.1",
     "firebase": "^9.15.0",

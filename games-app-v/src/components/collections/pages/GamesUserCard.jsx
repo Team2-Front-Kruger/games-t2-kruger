@@ -13,6 +13,8 @@ import pc from "../../../assets/icons/windows.png";
 import playstation from "../../../assets/icons/playstation.png";
 import xbox from "../../../assets/icons/xbox.png";
 
+import "animate.css";
+
 export const GamesUserCard = ({
   idG: id,
   title,
@@ -134,7 +136,7 @@ export const GamesUserCard = ({
   // };
 
   return (
-    <div className="card w-96 bg-base-100 shadow-xl mb-6">
+    <div className="animate__animated animate__zoomIn card w-96 bg-base-100 shadow-xl mb-6">
       {/* <div
         className="w-[128px] bg-no-repeat h-[80px]"
         style={{
@@ -179,7 +181,7 @@ export const GamesUserCard = ({
           {/* <div className="badge badge-outline">Action</div>
           <div className="badge badge-outline">Adventure</div> */}
         </div>
-        <div className="flex">
+        <div className="flex pl-1">
           {parent_platforms?.map((p) => (
             <img
               key={p.platform.slug}
@@ -189,7 +191,7 @@ export const GamesUserCard = ({
             />
           ))}
         </div>
-        <div className="flex justify-between">
+        <div className="flex justify-between mt-1">
           {isEdit ? (
             <FormEdit />
           ) : (
