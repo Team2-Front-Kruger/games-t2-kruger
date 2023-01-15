@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 import { isLogged } from "../../store/auth/authSlice";
+import CardGames from "./CardGames";
 
 const LoginComp = () => {
 
@@ -47,12 +48,13 @@ const LoginComp = () => {
     return (
         <div>
             <div className="hero min-h-screen bg-[url('https://wallpaperaccess.com/full/1470806.jpg')]">
-                <div className="hero-content flex-col lg:flex-row">
+                <div className="hero-content flex-col lg:flex-row w-full justify-around">
 
 
                     <div className="text-center lg:text-left text-white">
-                        <h1 className="text-5xl font-bold">Nuestros videojuegos</h1>
-                        <p className="py-6">Inicia sesión para poder acceder a todas las funciones de nuestra web y encontrar tus video juegos favoritos y mucho más</p>
+                        <h1 className="text-5xl font-bold">KrugGames</h1>
+                        <p className="py-6">UI FOR ENCONTRAR VIDEOJUEGOS </p>
+                        <CardGames/>
                     </div>
 
 
