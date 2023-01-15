@@ -33,19 +33,19 @@ export const startSaveGames = (slug) => {
       game: data,
       //   date: new Date().getTime(),
     };
-    console.log(uid);
+    // console.log(uid);
 
     const newDoc = doc(collection(FirebaseDB, `${uid}/collection/games`));
     const setDocResp = await setDoc(newDoc, newGame);
     console.log({ newDoc, setDocResp });
 
-    console.log(newGame);
+    // console.log(newGame);
 
     newGame.id = newDoc.id;
 
     dispatch(addNewGame(newGame));
 
-    console.log("SAVE GAME");
+    // console.log("SAVE GAME");
   };
 };
 
