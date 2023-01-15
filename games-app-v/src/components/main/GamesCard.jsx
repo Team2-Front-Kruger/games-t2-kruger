@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+import { startSaveGames } from "../../store/collections/thunks";
+import { useDispatch } from "react-redux";
+import { getGamesByIdSlug } from "./thunks";
 
 export const GamesCard = ({
   name,
@@ -10,8 +13,14 @@ export const GamesCard = ({
 }) => {
   // const {} = ratings;
   //console.log(ratings);
+  const dispatch = useDispatch();
 
   const { title } = ratings.find((el) => el.id >= rating);
+
+  const onlcickSave = () => {
+    // dispatch(getGamesByIdSlug(slug));
+    dispatch(startSaveGames(slug));
+  };
 
   return (
     <div className=" card w-96 bg-base-100 shadow-xl">
@@ -35,7 +44,9 @@ export const GamesCard = ({
           <div className="badge badge-outline">Adventure</div>
         </div>
         <div>
-          <button className="btn">Guardar Juego</button>
+          <button onClick={onlcickSave} className="btn">
+            Guardar Juego
+          </button>
         </div>
       </div>
     </div>

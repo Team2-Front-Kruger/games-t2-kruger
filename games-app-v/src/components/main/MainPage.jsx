@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { startLoadingGames } from "../../store/collections/thunks";
 import { GamesCard } from "./GamesCard";
 import { HeroGames } from "./HeroGames";
 import { getGames } from "./thunks";
@@ -26,6 +28,7 @@ export const MainPage = () => {
 
   useEffect(() => {
     dispatch(getGames());
+    // dispatch(startLoadingGames("36ef2ab3-3d36-431b-98a0-af07db0fd5e4"));
   }, []);
 
   return (
@@ -39,6 +42,14 @@ export const MainPage = () => {
 
       {/* CARD - TOP GAMES*/}
       <span>Loading: {isLoading ? "True" : "False"} </span>
+
+      <Link
+        to={`/user/colletion`}
+        className="link no-underline hover:text-orange-500"
+      >
+        <h2 className="card-title">User</h2>
+      </Link>
+
       <div className=" flex flex-wrap justify-between mx-auto ">
         {games.map((game) => (
           <GamesCard key={game.slug} {...game} page={page} />
