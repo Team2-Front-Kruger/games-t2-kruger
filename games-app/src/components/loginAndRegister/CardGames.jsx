@@ -32,7 +32,10 @@ const CardGames = () => {
                 ))
             }
             <div>
-            <Link className="flex w-fit ml-5" to='/'><svg class="h-7 w-7 text-white"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <polygon points="11 19 2 12 11 5 11 19" />  <polygon points="22 19 13 12 22 5 22 19" /></svg> - Descubre más</Link>
+            <Link className="flex w-fit ml-5 font-bold" to='/'> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+</svg>
+&nbsp; Descubre más</Link>
             </div>
         </div>     
         </>
