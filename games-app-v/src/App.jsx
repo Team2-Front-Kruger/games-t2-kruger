@@ -10,9 +10,10 @@ function App() {
 
   return (
     <BrowserRouter>
-      <LandingPage></LandingPage>
-
-      <AppRouter />
+      <div className="bg-[#141414] min-h-screen">
+        <LandingPage></LandingPage>
+        <AppRouter />
+      </div>
     </BrowserRouter>
   );
 }

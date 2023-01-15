@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import {
   RiHome3Line,
   RiFirefoxLine,
@@ -13,6 +14,9 @@ import {
 } from "react-icons/ri";
 
 function Sidebar() {
+  let activeStyle = {
+    textDecoration: "underline",
+  };
   const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => {
@@ -80,22 +84,24 @@ function Sidebar() {
       <div>
         <ul>
           <li>
-            <a
-              href="#"
-              className="text-gray-300 flex items-center gap-4 hover:bg-[#4338ca] py-3 px-4 rounded-xl transition-colors"
+            <NavLink
+              to="/descarga"
+              className="nav-link text-gray-300 flex items-center gap-4 hover:bg-[#4338ca] py-3 px-4 rounded-xl transition-colors"
+              style={({ isActive }) => (isActive ? activeStyle : undefined)}
             >
               <RiDownload2Line />
               Downloads
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a
-              href="#"
-              className="text-gray-300 flex items-center gap-4 hover:bg-[#4338ca] py-3 px-4 rounded-xl transition-colors"
+            <NavLink
+              to="/contact"
+              className="nav-link text-gray-300 flex items-center gap-4 hover:bg-[#4338ca] py-3 px-4 rounded-xl transition-colors"
+              style={({ isActive }) => (isActive ? activeStyle : undefined)}
             >
               <RiSettings3Line />
               Settings
-            </a>
+            </NavLink>
           </li>
           <li>
             <a

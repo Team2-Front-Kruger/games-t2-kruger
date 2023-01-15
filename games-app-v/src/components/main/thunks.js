@@ -6,7 +6,7 @@ export const getGames = (page = 0) => {
     dispatch(startLoadingGames());
 
     //TODO: realizar petición http
-    const key = "KEY";
+    const key = "f51bbd49e46f48508bb036fdfff25c7d";
 
     const { data } = await gameApi.get(`/games?key=${key}&page=1&page_size=2`);
 
