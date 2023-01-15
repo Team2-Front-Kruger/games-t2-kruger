@@ -4,6 +4,7 @@ export const mainSlice = createSlice({
   name: "main",
   initialState: {
     page: 0,
+    page_size: 0,
     games: [],
     gameById: [],
     gamesRelease: [],
@@ -16,6 +17,7 @@ export const mainSlice = createSlice({
     setGames: (state, action) => {
       state.isLoading = false;
       state.page = action.payload.page;
+      state.page_size = action.payload.page_size;
       state.games = action.payload.games;
       state.gamesPopular = action.payload.gamesP;
       state.gamesRelease = action.payload.gamesRel;

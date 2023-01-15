@@ -5,6 +5,8 @@ import { startLoadingGames } from "../../store/collections/thunks";
 import { GamesCard } from "./GamesCard";
 import { HeroGames } from "./HeroGames";
 import { getGames } from "./thunks";
+import "animate.css";
+import { LoadingView } from "../LoadingView";
 
 export const MainPage = () => {
   const dispatch = useDispatch();
@@ -13,6 +15,7 @@ export const MainPage = () => {
     isLoading,
     games = [],
     page,
+    page_size,
     gamesPopular = [],
     gamesRelease = [],
   } = useSelector((state) => state.games);
@@ -21,7 +24,7 @@ export const MainPage = () => {
 
   const rel = gamesRelease?.filter((gr) => gr.slug !== "exoprimal");
 
-  console.log(rel);
+  // console.log(rel);
 
   const str = rel?.map((pt) => pt.parent_platforms);
   // console.log(str);
@@ -43,7 +46,7 @@ export const MainPage = () => {
 
   const [counter, setCounter] = useState(0);
 
-  console.log(counter);
+  // console.log(counter);
 
   const [titleH, setTitleH] = useState(rel[0]?.name);
   if (counter > 3) {
@@ -78,6 +81,13 @@ export const MainPage = () => {
       "Game release date: " + rel[counter]?.released;
   };
 
+  const q = 10;
+
+  const showBtnAll = q.length === 0;
+  let showBtnAllSearch = q.length === 0;
+  const showBtnBck = page === 1;
+  const showBtnNxt = page === 150;
+
   useEffect(() => {
     dispatch(getGames());
     // dispatch(startLoadingGames("36ef2ab3-3d36-431b-98a0-af07db0fd5e4"));
@@ -85,24 +95,28 @@ export const MainPage = () => {
 
   return (
     <>
-      {/* HERO - Trending - New */}
+      {isLoading ? (
+        <LoadingView />
+      ) : (
+        <>
+          {/* HERO - Trending - New */}
 
-      <div
-        id="backIm"
-        className="hero bg-no-repeat bg-[center_30%] "
-        style={{ backgroundImage: `url(${rel[0]?.background_image})` }}
-      >
-        <div className="hero-overlay bg-opacity-60"></div>
-        <div className="hero-content justify-between items-end w-full text-left text-neutral-content">
-          <div className="max-w-md">
-            <h1 id="h1H" className="mb-5 text-5xl font-bold">
-              {rel[0]?.name}
-            </h1>
-            <h2 id="h2H" className="text-center">
-              Game release date: {rel[0]?.released}
-            </h2>
-            <br />
-            {/* <div className="flex ">
+          <div
+            id="backIm"
+            className="animate__animated animate__zoomIn hero bg-no-repeat bg-[center_30%] "
+            style={{ backgroundImage: `url(${rel[0]?.background_image})` }}
+          >
+            <div className="hero-overlay bg-opacity-60"></div>
+            <div className="hero-content justify-between items-end w-full text-left text-neutral-content">
+              <div className="max-w-md">
+                <h1 id="h1H" className="mb-5 text-5xl font-bold">
+                  {rel[0]?.name}
+                </h1>
+                <h2 id="h2H" className="text-center">
+                  Game release date: {rel[0]?.released}
+                </h2>
+                <br />
+                {/* <div className="flex ">
               {rel?.map((p) => (
                 <img
                   key={p.parent_platforms.platform.slug}
@@ -112,65 +126,87 @@ export const MainPage = () => {
                 />
               ))}
             </div> */}
-            <button className="btn btn-primary">Go!</button>
-          </div>
-          <div className="  w-80">
-            <div className=" relative w-full">
-              <img
-                id="slideP"
-                src={rel[0]?.background_image}
-                className="w-full rounded-2xl"
-              />
-              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                <div className="text-left">
-                  <button className="btn glass btn-circle" onClick={back}>
-                    ❮
-                  </button>
-                </div>
-                <div className="text-right">
-                  <button className="btn glass btn-circle" onClick={next}>
-                    ❯
-                  </button>
-                </div>
+                <button className="btn btn-primary">Go!</button>
+              </div>
+              <div className="animate__animated animate__zoomIn  w-80">
+                <div className=" relative w-full">
+                  <img
+                    id="slideP"
+                    src={rel[0]?.background_image}
+                    className="w-full rounded-2xl"
+                  />
+                  <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                    <div className="text-left">
+                      <button className="btn glass btn-circle" onClick={back}>
+                        ❮
+                      </button>
+                    </div>
+                    <div className="text-right">
+                      <button className="btn glass btn-circle" onClick={next}>
+                        ❯
+                      </button>
+                    </div>
 
-                {/* <a href="#slide4" className="btn glass btn-circle">
+                    {/* <a href="#slide4" className="btn glass btn-circle">
                   ❮
                 </a>
                 <a href="#slide2" className="btn glass btn-circle">
                   ❯
                 </a> */}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      {/* <div>
+          {/* <div>
         {rel.map((gameP) => (
           <HeroGames key={gameP.slug} {...gameP} />
         ))}
       </div> */}
 
-      {/* CARD - TOP GAMES*/}
-      <span>Loading: {isLoading ? "True" : "False"} </span>
+          {/* CARD - TOP GAMES*/}
+          <span>Loading: {isLoading ? "True" : "False"} </span>
 
-      <Link
-        to={`/user/colletion`}
-        className="link no-underline hover:text-orange-500"
-      >
-        <h2 className="card-title">User</h2>
-      </Link>
+          <Link
+            to={`/user/colletion`}
+            className="link no-underline hover:text-orange-500"
+          >
+            <h2 className="card-title">User</h2>
+          </Link>
 
-      <div className=" flex flex-wrap justify-between mx-auto ">
-        {games.map((game) => (
-          <GamesCard key={game.slug} {...game} page={page} />
-        ))}
-      </div>
+          <div className=" flex flex-wrap justify-between mx-auto ">
+            {games.map((game) => (
+              <GamesCard key={game.slug} {...game} page={page} />
+            ))}
+          </div>
 
-      {/* CARD - CATEGORIES - 4 categories */}
-      <div className="prose card-categories-4">
-        <h2>POPULAR CATEGORIES</h2>
-      </div>
+          {/* CARD - CATEGORIES - 4 categories */}
+          <div className="prose card-categories-4">
+            <h2>POPULAR CATEGORIES</h2>
+          </div>
+          <div className="text-center mx-auto">
+            <div className="btn-group ">
+              <button
+                className="btn btn-primary "
+                disabled={showBtnBck || isLoading}
+                onClick={() => dispatch(getGames(page - 1, page_size))}
+                // style={{ display: showBtnAll ? "" : "none" }}
+              >
+                Back
+              </button>
+              <button
+                className="btn btn-accent"
+                disabled={showBtnNxt || isLoading}
+                onClick={() => dispatch(getGames(page + 1, page_size))}
+                // style={{ display: showBtnAll ? "" : "none" }}
+              >
+                Next
+              </button>
+            </div>
+          </div>
+        </>
+      )}
     </>
   );
 };
