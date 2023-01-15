@@ -40,7 +40,7 @@ function Navbar() {
 
   return (
     <>
-      <header className="fixed lg:pl-[340px] w-full flex flex-col md:flex-row items-center justify-between gap-4 p-8 bg-[#141414] z-40">
+      <header className="fixed lg:pl-[340px] w-full flex flex-col md:flex-row items-center justify-between gap-4 p-4 bg-[#141414] z-40">
         <nav className="flex items-center gap-4 order-1 lg:order-none">
           <a
             href="#"

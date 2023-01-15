@@ -6,8 +6,8 @@ import {
   RiLayoutGridLine,
   RiTeamLine,
   RiLiveLine,
-  RiDownload2Line,
-  RiSettings3Line,
+  RiContactsBookLine,
+  RiContactsFill,
   RiCheckboxBlankCircleFill,
   RiMenu3Fill,
   RiCloseLine,
@@ -15,7 +15,8 @@ import {
 
 function Sidebar() {
   let activeStyle = {
-    textDecoration: "underline",
+    textDecoration: "Underline",
+    // color: "[#4338ca]",
   };
   const [showMenu, setShowMenu] = useState(false);
 
@@ -35,49 +36,54 @@ function Sidebar() {
         </h1>
         <ul>
           <li>
-            <a
-              href="#"
-              className="text-gray-300 flex items-center gap-4 hover:bg-[#4338ca] py-3 px-4 rounded-xl transition-colors"
+            <NavLink
+              to="/desca"
+              className="nav-link text-gray-300 flex items-center gap-4 hover:bg-[#4338ca] py-3 px-4 rounded-xl transition-colors"
+              style={({ isActive }) => (isActive ? activeStyle : undefined)}
             >
               <RiHome3Line />
               Home
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a
-              href="#"
-              className="text-gray-300 flex items-center gap-4 hover:bg-[#4338ca] py-3 px-4 rounded-xl transition-colors"
+            <NavLink
+              to="/desca"
+              className="nav-link text-gray-300 flex items-center gap-4 hover:bg-[#4338ca] py-3 px-4 rounded-xl transition-colors"
+              style={({ isActive }) => (isActive ? activeStyle : undefined)}
             >
               <RiFirefoxLine />
               Store
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a
-              href="#"
-              className="text-gray-300 flex items-center gap-4 hover:bg-[#4338ca] py-3 px-4 rounded-xl transition-colors"
+            <NavLink
+              to="/desca"
+              className="nav-link text-gray-300 flex items-center gap-4 hover:bg-[#4338ca] py-3 px-4 rounded-xl transition-colors"
+              style={({ isActive }) => (isActive ? activeStyle : undefined)}
             >
               <RiLayoutGridLine />
               Library
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a
-              href="#"
-              className="text-gray-300 flex items-center gap-4 hover:bg-[#4338ca] py-3 px-4 rounded-xl transition-colors"
+            <NavLink
+              to="/desca"
+              className="nav-link text-gray-300 flex items-center gap-4 hover:bg-[#4338ca] py-3 px-4 rounded-xl transition-colors"
+              style={({ isActive }) => (isActive ? activeStyle : undefined)}
             >
               <RiTeamLine />
               Friends
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a
-              href="#"
-              className="text-gray-300 flex items-center gap-4 hover:bg-[#4338ca] py-3 px-4 rounded-xl transition-colors"
+            <NavLink
+              to="/desca"
+              className="nav-link text-gray-300 flex items-center gap-4 hover:bg-[#4338ca] py-3 px-4 rounded-xl transition-colors"
+              style={({ isActive }) => (isActive ? activeStyle : undefined)}
             >
               <RiLiveLine />
               Live
-            </a>
+            </NavLink>
           </li>
         </ul>
       </div>
@@ -89,8 +95,8 @@ function Sidebar() {
               className="nav-link text-gray-300 flex items-center gap-4 hover:bg-[#4338ca] py-3 px-4 rounded-xl transition-colors"
               style={({ isActive }) => (isActive ? activeStyle : undefined)}
             >
-              <RiDownload2Line />
-              Downloads
+              <RiContactsBookLine />
+              About
             </NavLink>
           </li>
           <li>
@@ -99,8 +105,8 @@ function Sidebar() {
               className="nav-link text-gray-300 flex items-center gap-4 hover:bg-[#4338ca] py-3 px-4 rounded-xl transition-colors"
               style={({ isActive }) => (isActive ? activeStyle : undefined)}
             >
-              <RiSettings3Line />
-              Settings
+              <RiContactsFill />
+              Contact
             </NavLink>
           </li>
           <li>
