@@ -1,10 +1,11 @@
 import {
   addNewGame,
+  deleteGameById,
   setGames,
   setSaving,
   updateGame,
 } from "./collectionsSlice";
-import { collection, doc, setDoc } from "firebase/firestore/lite";
+import { collection, deleteDoc, doc, setDoc } from "firebase/firestore/lite";
 import { FirebaseDB } from "../../firebase/config";
 import { gameApi } from "../../api/gameApi";
 import { loadGames } from "./helpers/loadGames";
@@ -72,12 +73,26 @@ export const startUpdate = () => {
 
     const noteUpFireStore = { ...game };
 
-    console.log(game.id);
-    console.log(noteUpFireStore);
+    // console.log(game.id);
+    // console.log(noteUpFireStore);
 
     const upDoc = doc(FirebaseDB, `${uid}/collection/games/${game.id}`);
     await setDoc(upDoc, noteUpFireStore, { merge: true });
 
-    //dispatch(updateGame(game));
+    // dispatch(updateGame(game));
+  };
+};
+
+export const startDeletingNote = () => {
+  return async (dispatch, getState) => {
+    const uid = "36ef2ab3-3d36-431b-98a0-af07db0fd5e4";
+    const { active: game } = getState().collections;
+
+    // console.log(game.id);
+
+    const delDoc = doc(FirebaseDB, `${uid}/collection/games/${game.id}`);
+    await deleteDoc(delDoc);
+
+    dispatch(deleteGameById(game.id));
   };
 };

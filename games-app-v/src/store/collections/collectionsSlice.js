@@ -34,7 +34,13 @@ export const collectionSlice = createSlice({
       });
       state.messageSaved = "Nota actualizada";
     },
-    deleteGameById: (state, action) => {},
+    deleteGameById: (state, action) => {
+      state.isSaving = false;
+      state.active = null;
+      state.games = state.games.filter((game) => game.id !== action.payload);
+
+      state.messageSaved = "Nota eliminada";
+    },
   },
 });
 

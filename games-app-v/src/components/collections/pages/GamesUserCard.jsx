@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setActiveGame } from "../../../store/collections/collectionsSlice";
-import { startUpdate } from "../../../store/collections/thunks";
+import {
+  startDeletingNote,
+  startLoadingGames,
+  startUpdate,
+} from "../../../store/collections/thunks";
 
 export const GamesUserCard = ({
   idG: id,
@@ -15,8 +19,18 @@ export const GamesUserCard = ({
   ratings,
   ...game
 }) => {
-  // const { title: titleC } = ratings?.find((el) => el.id >= rating);
   const { active = [] } = useSelector((state) => state.collections);
+
+  // console.log(active?.title);
+
+  // const titulo = !active?.title ? title : active?.title;
+
+  // document.querySelector("#" + slug).innerHTML
+
+  // console.log(document.querySelector("#" + slug)?.value);
+  // document.querySelector("#i" + slug)?.innerHTML="Nrolado";
+
+  const { title: titleC } = ratings?.find((el) => el.id >= rating);
 
   const [nameG, setNameG] = useState(name_original);
 
@@ -29,8 +43,14 @@ export const GamesUserCard = ({
     dispatch(setActiveGame({ id, title, game }));
   };
 
+  const onDeleteGame = () => {
+    dispatch(setActiveGame({ id, title, game }));
+    dispatch(startDeletingNote());
+  };
+
   const FormEdit = () => {
     const [newValue, setNewValue] = useState(title);
+
     const handleSubmit = (e) => {
       e.preventDefault();
     };
@@ -48,31 +68,40 @@ export const GamesUserCard = ({
       // }
       // onUpdate(item.id, newValue);
       // console.log(document.querySelector("#" + slug).innerHTML);
-      document.querySelector("#" + slug).innerHTML = newValue;
+
+      document.querySelector("#h2" + slug).innerHTML = newValue;
       // console.log(newValue);
 
-      console.log(active.title);
+      // console.log(active.title);
 
       dispatch(setActiveGame({ ...active, title: newValue }));
 
       dispatch(startUpdate());
 
       setIsEdit(false);
+      //dispatch(startLoadingGames("36ef2ab3-3d36-431b-98a0-af07db0fd5e4"));
       // return swal("Se actualizó el ToDo", "", "success");
     };
 
-    // useEffect(() => {
-    //   dispatch(setActiveGame({ title: newValue, ...game }));
-    // }, [handleClickUpdateTodo]);
+    useEffect(() => {
+      // console.log(document.querySelector("#" + slug));
+      console.log(title);
+      document.querySelector("#" + slug).value = document.querySelector(
+        "#h2" + slug
+      ).innerHTML;
+    }, []);
 
     return (
       <form className="todoUpdateForm row g-2" onSubmit={handleSubmit}>
         <div className="col-auto">
           <input
+            id={slug}
             type="text"
             className="todoInput form-control"
             onChange={handleChange}
-            value={newValue}
+            autoFocus
+            // value={newValue}
+            // placeholder="Editar el Nombre del Juego"
           />
         </div>
         <div className="col-auto">
@@ -102,11 +131,11 @@ export const GamesUserCard = ({
           to={`/games/${slug}`}
           className="link no-underline hover:text-orange-500"
         >
-          <h2 id={slug} className="card-title">
+          <h2 id={"h2" + slug} className="card-title">
             {title}
           </h2>
         </Link>
-        <div className="badge badge-secondary">{title}</div>
+        <div className="badge badge-secondary">{titleC}</div>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
           minus doloribus harum blanditiis?
@@ -124,6 +153,9 @@ export const GamesUserCard = ({
               Editar
             </button>
           )}
+          <button id="editb" className="btn ml-2" onClick={onDeleteGame}>
+            Delete
+          </button>
         </div>
       </div>
     </div>
