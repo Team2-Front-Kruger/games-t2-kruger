@@ -12,10 +12,9 @@
 
 </div>
 
-### Menú:
-  - [Build](#build-with-🛠 )
-  - [Run It](#🚀-run-it)
-  - [Authors](#👨‍💻-authors)
+### Video Explicativo y feedback:
+ 
+ https://youtu.be/Y311xa7TIsc
       
 
 
@@ -111,7 +110,7 @@ For a live demo please click on the following link:
 
 # 👨‍💻 Authors
 
-- <img src="https://avatars.githubusercontent.com/u/9219956?v=4" alt="me" width=100px />
+- <img src="https://pps.whatsapp.net/v/t61.24694-24/315366406_131828406188151_4693699854617595623_n.jpg?ccb=11-4&oh=01_AdS4QNlnJDdbJlbDDZf0BvxiAZsBOIA6b8E03vAYElt5kw&oe=63D217CC" alt="me" width=100px />
 
   [@eddyjav](https://github.com/eddyjav/)
 
