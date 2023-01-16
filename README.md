@@ -99,7 +99,14 @@ For a live demo please click on the following link:
 
 # How use?
 
+<div align="center">
+
 ![](https://github.com/Team2-Front-Kruger/common/blob/main/gif1.gif?raw=true)
+
+![](https://github.com/Team2-Front-Kruger/common/blob/main/gif2.gif?raw=true)
+  
+  </div>
+
 
 
 # 👨‍💻 Authors
