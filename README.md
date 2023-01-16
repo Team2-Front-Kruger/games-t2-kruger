@@ -32,7 +32,7 @@
 
 # Getting Started🔌
 
-**En este repositorio podrás encontrar una página de videojuegos desarrollada en react, firebase, taildwind y mucha tecnologías más**
+**En este repositorio podrás encontrar una página de videojuegos desarrollada en react, firebase, taildwind y muchas tecnologías más**
 
 ## 🚀 Run it
 
