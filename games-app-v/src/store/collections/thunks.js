@@ -6,9 +6,10 @@ import {
   updateGame,
 } from "./collectionsSlice";
 import { collection, deleteDoc, doc, setDoc } from "firebase/firestore/lite";
-import { FirebaseDB } from "../../firebase/config";
+// import { FirebaseDB } from "../../firebase/config";
 import { gameApi } from "../../api/gameApi";
 import { loadGames } from "./helpers/loadGames";
+import { FirebaseDB } from "../../firebase";
 
 export const startSaveGames = (slug) => {
   return async (dispatch, getState) => {

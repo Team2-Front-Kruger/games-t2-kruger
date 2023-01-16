@@ -1,5 +1,6 @@
 import { collection, getDocs } from "firebase/firestore/lite";
-import { FirebaseDB } from "../../../firebase/config";
+import { FirebaseDB } from "../../../firebase";
+// import { FirebaseDB } from "../../../firebase/config";
 
 export const loadGames = async (uid = "") => {
   if (!uid) throw new Error("El UID del usuario no existe");
