@@ -35,7 +35,7 @@ const CardRegister = () => {
   };
 
   return (
-    <div className="hero min-h-screen bg-[url('./public/fondocallof.jpg')]">
+    <div className="hero min-h-screen bg-[url('/fondocallof.jpg')]">
       <div className="hero-content flex-col lg:flex-row w-full justify-around">
         <div className="text-center lg:text-left text-white">
           <h1 className="text-5xl font-bold">KrugGames</h1>
