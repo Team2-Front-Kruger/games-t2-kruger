@@ -10,11 +10,13 @@ export const CollectionPage = () => {
   const active = true;
 
   return (
-    <>
+    <main className="lg:pl-[340px] p-8 pt-36">
       <div>
-        <h1 className="font-bold">Your Collections</h1>
+        <h1 className="font-bold text-white	text-center text-3xl mb-4">
+          Your Collections
+        </h1>
       </div>
       {active ? <GamesCollectionPage /> : <NothingView />}
-    </>
+    </main>
   );
 };

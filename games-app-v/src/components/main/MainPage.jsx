@@ -120,7 +120,7 @@ export const MainPage = () => {
   }, []);
 
   return (
-    <>
+    <main className="lg:pl-[340px] p-8 pt-36">
       {isLoading ? (
         <LoadingView />
       ) : (
@@ -129,11 +129,11 @@ export const MainPage = () => {
 
           <div
             id="backIm"
-            className="animate__animated animate__zoomIn hero bg-no-repeat bg-[center_30%] "
+            className="animate__animated animate__zoomIn rounded-2xl hero bg-no-repeat bg-[center_30%] "
             style={{ backgroundImage: `url(${rel[0]?.background_image})` }}
           >
-            <div className="hero-overlay bg-opacity-60"></div>
-            <div className="hero-content justify-between items-end w-full text-left text-neutral-content">
+            <div className="hero-overlay bg-opacity-60 rounded-2xl"></div>
+            <div className="hero-content justify-between  items-end w-full text-left text-neutral-content">
               <div className="max-w-md">
                 <h1 id="h1H" className="mb-5 text-5xl font-bold">
                   {rel[0]?.name}
@@ -143,23 +143,24 @@ export const MainPage = () => {
                 </h2>
                 <br />
                 {/* <div className="flex ">
-              {rel?.map((p) => (
-                <img
-                  key={p.parent_platforms.platform.slug}
-                  src={`/icons/${p.parent_platforms.platform.slug}.png`}
-                  alt="Game"
-                  className="w-8 h-8 mr-4"
-                />
-              ))}
-            </div> */}
-                <button className="btn btn-primary">Go!</button>
+          {rel?.map((p) => (
+            <img
+              key={p.parent_platforms.platform.slug}
+              src={`/icons/${p.parent_platforms.platform.slug}.png`}
+              alt="Game"
+              className="w-8 h-8 mr-4"
+            />
+          ))}
+        </div> */}
+
+                {/* <button className="btn btn-primary">Go!</button> */}
               </div>
               <div className="animate__animated animate__zoomIn  w-80">
                 <div className=" relative w-full">
                   <img
                     id="slideP"
                     src={rel[0]?.background_image}
-                    className="w-full rounded-2xl"
+                    className="w-full rounded-2xl animate__animated animate__zoomIn"
                   />
                   <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                     <div className="text-left">
@@ -174,11 +175,11 @@ export const MainPage = () => {
                     </div>
 
                     {/* <a href="#slide4" className="btn glass btn-circle">
-                  ❮
-                </a>
-                <a href="#slide2" className="btn glass btn-circle">
-                  ❯
-                </a> */}
+              ❮
+            </a>
+            <a href="#slide2" className="btn glass btn-circle">
+              ❯
+            </a> */}
                   </div>
                 </div>
               </div>
@@ -186,22 +187,22 @@ export const MainPage = () => {
           </div>
 
           {/* <div>
-        {rel.map((gameP) => (
-          <HeroGames key={gameP.slug} {...gameP} />
-        ))}
-      </div> */}
+    {rel.map((gameP) => (
+      <HeroGames key={gameP.slug} {...gameP} />
+    ))}
+  </div> */}
 
           {/* CARD - TOP GAMES*/}
-          <span>Loading: {isLoading ? "True" : "False"} </span>
+          {/* <span>Loading: {isLoading ? "True" : "False"} </span>
 
           <Link
             to={`/user/colletion`}
-            className="link no-underline hover:text-orange-500"
+            className="link no-underline hover:text-orange-500 "
           >
             <h2 className="card-title">User</h2>
-          </Link>
+          </Link> */}
 
-          <div className=" flex flex-wrap justify-between mx-auto ">
+          <div className=" pt-4 flex flex-wrap justify-between mx-auto ">
             {games.map((game) => (
               <GamesCard key={game.slug} {...game} page={page} />
             ))}
@@ -209,7 +210,7 @@ export const MainPage = () => {
 
           {/* CARD - CATEGORIES - 4 categories */}
           <div className="prose card-categories-4">
-            <h2>POPULAR CATEGORIES</h2>
+            {/* <h2>POPULAR CATEGORIES</h2> */}
           </div>
           <div className="text-center mx-auto">
             <div className="btn-group ">
@@ -233,6 +234,6 @@ export const MainPage = () => {
           </div>
         </>
       )}
-    </>
+    </main>
   );
 };

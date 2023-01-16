@@ -5,11 +5,12 @@ import { GamesUserCard } from "./GamesUserCard";
 
 export const GamesCollectionPage = () => {
   const { games = [] } = useSelector((state) => state.collections);
+  const { uid = "" } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(startLoadingGames("36ef2ab3-3d36-431b-98a0-af07db0fd5e4"));
+    dispatch(startLoadingGames(uid));
   }, []);
 
   return (

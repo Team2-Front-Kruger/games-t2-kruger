@@ -37,7 +37,7 @@ function Sidebar() {
         <ul>
           <li>
             <NavLink
-              to="/desca"
+              to="/"
               className="nav-link text-gray-300 flex items-center gap-4 hover:bg-[#4338ca] py-3 px-4 rounded-xl transition-colors"
               style={({ isActive }) => (isActive ? activeStyle : undefined)}
             >

@@ -59,8 +59,9 @@ export const Contact = () => {
 
             <a href={mensaje} target="_blank" rel="noopener noreferrer">
               <button
-                className="bg-cyan-600 text-white w-full py-3 px-4 rounded-full hover:bg-cyan-700 transition-colors"
+                type="button"
                 onClick={handleClick}
+                className="w-full btn btn-lg btn-primary hover:bg-[#4338ca]"
               >
                 Enviar
               </button>

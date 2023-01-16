@@ -3,14 +3,20 @@ import { RiSearchLine } from "react-icons/ri";
 import { useDispatch } from "react-redux";
 import { addBuscador } from "../../store/Buscador/buscadorSlice";
 
-
 import { useSelector } from "react-redux";
+import { isLoggout } from "../../store/auth/authSlice";
+import { useAuth } from "../../context/authContext";
+import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
+import { isLogged, login as logIN } from "../../store/auth/authSlice";
 function Navbar() {
   const buscadorpState = useSelector((state) => state.buscador);
-  console.log("desde navbarState" + buscadorpState);
+  // console.log("desde navbarState" + buscadorpState);
 
   const [keywords, setKeywords] = useState("");
   const dispatch = useDispatch();
+  const { logout } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     loadInfo();
@@ -23,8 +29,8 @@ function Navbar() {
       );
 
       const json = await request.json();
-      console.log("desde busqueda API");
-      console.log(json);
+      // console.log("desde busqueda API");
+      // console.log(json);
     } catch (e) {
       console.error(e);
     }
@@ -34,9 +40,21 @@ function Navbar() {
     e.preventDefault();
     setKeywords(e.target.value);
     dispatch(addBuscador(keywords));
-    console.log(keywords);
+    // console.log(keywords);
     loadInfo(keywords);
   }
+
+  const salir = async () => {
+    try {
+      await logout();
+      navigate("/login");
+      dispatch(logIN({ uid: null }));
+      dispatch(isLoggout(0));
+      console.log("salir OK!!");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -54,12 +72,13 @@ function Navbar() {
           >
             Browse
           </a>
-          <a
-            href="#"
+
+          <Link
+            to={`/user/colletion`}
             className="hover:bg-[#4338ca] text-white  py-2 px-4 rounded-full"
           >
-            Wishlist
-          </a>
+            <h2>Wishlist</h2>
+          </Link>
         </nav>
         <ul className=" flex items-center gap-4 ">
           <li>
@@ -121,12 +140,12 @@ function Navbar() {
                 <li>
                   <a>Logout</a>
                 </li>
+                <button onClick={salir}>Salir</button>
               </ul>
             </div>
           </li>
         </ul>
       </header>
-      
     </>
   );
 }

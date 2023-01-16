@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { startSaveGames } from "../../store/collections/thunks";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getGamesByIdSlug } from "./thunks";
 import "animate.css";
 
@@ -19,12 +19,15 @@ export const GamesCard = ({
   // const {} = ratings;
   //console.log(ratings);
   const dispatch = useDispatch();
+  const { uid } = useSelector((state) => state.auth);
+
+  // console.log("UID->" + uid);
 
   const { title } = ratings.find((el) => rating >= el.id);
 
   const onlcickSave = () => {
     // dispatch(getGamesByIdSlug(slug));
-    dispatch(startSaveGames(slug));
+    dispatch(startSaveGames(slug, uid));
   };
 
   return (

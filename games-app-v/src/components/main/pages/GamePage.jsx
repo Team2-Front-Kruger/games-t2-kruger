@@ -55,37 +55,39 @@ export const GamePage = () => {
   }, []);
 
   return (
-    <div className="mt-20 ml-40 ">
-      <div
-        className="hero place-items-start min-h-screen rounded-3xl"
-        style={{ backgroundImage: `url(${background_image})` }}
-      >
-        <div className="hero-overlay  bg-opacity-60 rounded-3xl"></div>
-        <div className="hero-content flex-col justify-start w-full h-full text-start text-neutral-content">
-          <h1 className="mb-5 text-5xl text-center font-bold">{name}</h1>
-          {/* CAROUSEL */}
+    <main className="lg:pl-[340px] p-8 pt-36">
+      <div className="mt-3 ml-35 ">
+        <div
+          className="hero place-items-start min-h-screen rounded-3xl"
+          style={{ backgroundImage: `url(${background_image})` }}
+        >
+          <div className="hero-overlay  bg-opacity-60 rounded-3xl"></div>
+          <div className="hero-content flex-col justify-start w-full h-full text-start text-neutral-content">
+            <h1 className="mb-5 text-5xl text-center font-bold">{name}</h1>
+            {/* CAROUSEL */}
 
-          <div className="carousel carousel-center max-w-2xl p-4 space-x-4  rounded-box">
-            {background_img.map((game) => (
-              <div key={game.slug} className="carousel-item">
-                <img
-                  key={game.slug}
-                  src={game.image}
-                  className="rounded-box  max-w-xl"
-                />
-              </div>
-            ))}
-          </div>
+            <div className="carousel carousel-center max-w-2xl p-4 space-x-4  rounded-box">
+              {background_img.map((game) => (
+                <div key={game.slug} className="carousel-item">
+                  <img
+                    key={game.slug}
+                    src={game.image}
+                    className="rounded-box  max-w-xl"
+                  />
+                </div>
+              ))}
+            </div>
 
-          {/* END-CAROUSEL */}
+            {/* END-CAROUSEL */}
 
-          <div className="max-w-md">
-            <div id="descrip"></div>
-            {/* <p className="mb-5">{description}</p> */}
-            <button className="btn btn-primary">Get Started</button>
+            <div className="max-w-md">
+              <div id="descrip"></div>
+              {/* <p className="mb-5">{description}</p> */}
+              {/* <button className="btn btn-primary">Get Started</button> */}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 };

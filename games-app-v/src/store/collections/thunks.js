@@ -11,7 +11,7 @@ import { gameApi } from "../../api/gameApi";
 import { loadGames } from "./helpers/loadGames";
 import { FirebaseDB } from "../../firebase";
 
-export const startSaveGames = (slug) => {
+export const startSaveGames = (slug, uid) => {
   return async (dispatch, getState) => {
     //TODO: usar getState para acceder a los datos del STORE, username para enviarlo a Firebase
 
@@ -25,7 +25,7 @@ export const startSaveGames = (slug) => {
 
     // const uid = crypto.randomUUID(); //el id asignado por FIREBASE al user
 
-    const uid = "36ef2ab3-3d36-431b-98a0-af07db0fd5e4";
+    // const uid = "36ef2ab3-3d36-431b-98a0-af07db0fd5e4";
 
     const { name } = data;
 
