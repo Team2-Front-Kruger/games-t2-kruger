@@ -87,6 +87,13 @@ For a live demo please click on the following link:
 - [x] Creacion de página de visualización de lista de deseos.
 
 
+# Future updates
+
+- [] Funcionalidad para poder agregar amigos
+- [] Edición de Perfil de usuario
+- [] Función para ver videos en vivo mediante API de paga.
+- [] Consumo de una API para ver ofertas de videojuegos.
+
 
 
 # 👨‍💻 Authors
