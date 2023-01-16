@@ -5,7 +5,7 @@
 
 
 
-<i>Loved the project? give me you star</i>
+<i>Si te gusta el proyecto puedes darnos una estrella ⭐</i>
 <img src="https://github.com/Team2-Front-Kruger/common/blob/main/krugames.jpg?raw=true" alt="krugames"/>
 
 
