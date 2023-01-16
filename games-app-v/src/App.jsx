@@ -12,7 +12,7 @@ function App() {
   const [count, setCount] = useState(0);
   const { uid } = useSelector((state) => state.auth);
 
-  console.log(uid === null);
+  // console.log(uid === null);
 
   return (
     <BrowserRouter>

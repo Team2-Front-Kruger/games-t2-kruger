@@ -1,4 +1,4 @@
-import { Link, Navigate, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Contact } from "../components/contact/Contact";
 import { Descargas } from "../components/contact/Descargas";
 import { MainPage } from "../components/main/MainPage";
@@ -18,8 +18,12 @@ export const AppRouter = () => {
       {
         // (authStatus=== 'non-authenticated')
       }
+
       {uid === null ? (
-        <Route path="/*" element={<LoginComp />} />
+        <>
+          <Route path="/*" element={<LoginComp />} />
+          <Route path="/register" element={<CardRegister />}></Route>
+        </>
       ) : (
         <>
           <Route path="/" element={<MainPage />} />
@@ -32,15 +36,6 @@ export const AppRouter = () => {
           <Route path="/about" element={<AboutComp />}></Route>
         </>
       )}
-
-      {/* <Route path="/" element={<MainPage />} />
-      <Route path="/games/:nombre" element={<GamePage />} />
-      <Route path="/user/colletion" element={<CollectionPage />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/descarga" element={<Descargas />} />
-      <Route path="/login" element={<LoginComp />}></Route>
-      <Route path="/register" element={<CardRegister />}></Route>
-      <Route path="/about" element={<AboutComp />}></Route> */}
     </Routes>
   );
 };
