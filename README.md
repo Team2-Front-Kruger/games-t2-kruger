@@ -99,7 +99,7 @@ For a live demo please click on the following link:
 
 # How use?
 
-![](https://github.com/Team2-Front-Kruger/common/blob/main/krug.gif?raw=true)
+![](https://github.com/Team2-Front-Kruger/common/blob/main/gif1.gif?raw=true)
 
 
 # 👨‍💻 Authors
