@@ -17,7 +17,7 @@ export const Contact = () => {
     <main className="lg:pl-[340px] p-8 pt-36">
       <div className="register flex  justify-center min-h-screen rounded-lg md:p-8">
         <div className="p-8">
-          <h1 className="text-6xl text-white font-medium mb-2">
+          <h1 className="text-6xl text-black font-medium mb-2">
             CONTÁCTANOS<span className="text-cyan-500">.</span>
           </h1>
           <span className="text-gray-500 font-medium">
@@ -29,7 +29,7 @@ export const Contact = () => {
           <form className="mt-8">
             <div className="max-w-lg mb-4 flex flex-col md:flex-row items-center justify-between gap-4">
               <input
-                onChange={handleChange}
+                // onChange={handleChange}
                 type="text"
                 autoComplete="off"
                 className="w-full py-3 px-4 rounded-xl outline-none bg-[#343434] text-gray-100 group"
@@ -52,6 +52,7 @@ export const Contact = () => {
             </div>
             <div className="max-w-lg mb-4">
               <input
+                onChange={handleChange}
                 className="w-full py-6 px-4 rounded-xl outline-none bg-[#343434] text-gray-100 group"
                 placeholder="Tu mensaje aquí"
               />
