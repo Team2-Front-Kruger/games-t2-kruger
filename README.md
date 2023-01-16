@@ -89,10 +89,10 @@ For a live demo please click on the following link:
 
 # Future updates
 
-- [] Funcionalidad para poder agregar amigos
-- [] Edición de Perfil de usuario
-- [] Función para ver videos en vivo mediante API de paga.
-- [] Consumo de una API para ver ofertas de videojuegos.
+- [ ] Funcionalidad para poder agregar amigos
+- [ ] Edición de Perfil de usuario
+- [ ] Función para ver videos en vivo mediante API de paga.
+- [ ] Consumo de una API para ver ofertas de videojuegos.
 
 
 
