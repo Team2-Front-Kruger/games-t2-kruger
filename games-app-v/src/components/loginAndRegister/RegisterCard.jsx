@@ -26,7 +26,7 @@ const CardRegister = () => {
     try {
       const resp = await signup(user.email, user.password);
       const { uid } = resp.user;
-      console.log(uid);
+      console.log("UR->" + uid);
       navigate("/");
       dispatch(login({ uid: uid }));
     } catch (error) {

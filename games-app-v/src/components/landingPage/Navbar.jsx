@@ -9,6 +9,7 @@ import { useAuth } from "../../context/authContext";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { isLogged, login as logIN } from "../../store/auth/authSlice";
+import { setGames } from "../../store/collections/collectionsSlice";
 function Navbar() {
   const buscadorpState = useSelector((state) => state.buscador);
   // console.log("desde navbarState" + buscadorpState);
@@ -49,6 +50,7 @@ function Navbar() {
       await logout();
       navigate("/login");
       dispatch(logIN({ uid: null }));
+      // dispatch(setGames({ games: [] }));
       dispatch(isLoggout(0));
       console.log("salir OK!!");
     } catch (error) {
@@ -138,9 +140,8 @@ function Navbar() {
                   <a>Settings</a>
                 </li>
                 <li>
-                  <a>Logout</a>
+                  <button onClick={salir}>Logout</button>
                 </li>
-                <button onClick={salir}>Salir</button>
               </ul>
             </div>
           </li>
