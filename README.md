@@ -97,6 +97,10 @@ For a live demo please click on the following link:
 - [ ] Consumo de una API para ver ofertas de videojuegos.
 
 
+# How use?
+
+![](https://github.com/Team2-Front-Kruger/common/blob/main/krug.gif?raw=true)
+
 
 # 👨‍💻 Authors
 
